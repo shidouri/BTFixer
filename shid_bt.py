@@ -75,7 +75,7 @@ def _replace_template(p_root : str, s_template_path : str) -> bool:
 def _replace_usermaps(p_root : str) -> bool:
     try:     
         p_usermaps= f'{p_root}/usermaps/'
-        list_maps = os.listdir(p_usermaps)
+        list_maps = [entry.name for entry in os.scandir(p_usermaps)] # for prov3ntus ;)
     except: return False
 
     for s_map in list_maps:
