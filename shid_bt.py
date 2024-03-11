@@ -101,7 +101,7 @@ def _replace_gsc(p_gsc : str, s_map : str) -> None:
         list_lines = fp.readlines()
         for line in list_lines:
             if('function main()' in line and b_write_line):
-                list_lines.insert(47, '#using scripts\zm\_hb21_zm_behavior;\n')
+                list_lines.insert(47, '\n#using scripts\zm\_hb21_zm_behavior;\n')
                 fp.seek(0, 0)
                 fp.writelines(list_lines)
                 _print(f'Added GSC line to {s_map}.', 1)
@@ -121,7 +121,7 @@ def _replace_zone(p_zone : str, s_map : str) -> None:
                 break
                     
         if b_write_line:
-            list_lines.append('scriptparsetree,scripts/zm/_hb21_zm_behavior.gsc')
+            list_lines.append('\nscriptparsetree,scripts/zm/_hb21_zm_behavior.gsc')
             fp.seek(0, 0)
             fp.writelines(list_lines)
             _print(f'Added zone line to {s_map}.', 1)
